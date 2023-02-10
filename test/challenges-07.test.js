@@ -245,7 +245,7 @@ describe("Challenge07", () => {
 });
 
 describe("Challenge07", () => {
-  test.skip("cv_filter", () => {
+  test("cv_filter", () => {
     let received = {
       python_devs: 0,
       javaScript_devs: 2,
@@ -336,7 +336,7 @@ describe("Challenge07", () => {
 });
 
 describe("Challenge07", () => {
-  test.skip("classes_Avg", () => {
+  test("classes_Avg", () => {
     let received = {
       schoolName: "Al Farouk",
       capacity: 1000,

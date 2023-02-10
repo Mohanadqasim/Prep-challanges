@@ -125,8 +125,35 @@ const cvFormatter = (arr) => {
 //  1- rejectedApplicants are applications that has both the names empty or null and whoever have one year or less of Experience
 
 const applicationsStatics = (arr) => {
-    // write your code here
+    let result = {
+    python_devs: 0,
+    javaScript_devs: 0,
+    dotNet_devs: 0,
+    java_devs: 0,
+    totalApplicants: 0,
+    rejectedApplicants: 0,
 };
+    for (let i = 0; i < arr.length; i++) {
+        result.totalApplicants=result.totalApplicants+1;
+        if (arr[i].yearsOfExperience > 1)  {
+            if (arr[i].firstName != null || arr[i].lastName != null) {
+                if (arr[i].tech==="Python") {
+                    result.python_devs++;
+                }else if (arr[i].tech==="JS") {
+                    result.javaScript_devs++;
+                } else if (arr[i].tech===".Net") {
+                    result.dotNet_devs++;
+                } else if (arr[i].tech==="Java") {
+                    result.java_devs++;
+                }
+                } 
+            } else {
+                result.rejectedApplicants++;
+            }
+        }
+        return result;
+    };
+
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -252,7 +279,18 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-    // write your code here
+    for (let i =0; i<data.grades.length; i++) {
+        let sum = 0;
+        let counter=0;
+        for (let j =0; j<data.grades[i].classes.length; j++) {
+            for (let y =0; y<=data.grades[i].classes[j].classScores.length; y++) {
+                sum+=data.grades[i].classes[j].classScores[y];
+                counter+=1;
+            }
+            data.grades[i].classes[j].avg=Math.round(sum/counter);
+        }
+    }
+    return data;
 };
 // -------------------------------------------------------------------------------------------------------
 
