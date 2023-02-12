@@ -89,14 +89,30 @@ const objLat = (obj) => {
 
 const cvFormatter = (arr) => {
     let filtered = [];
+    function CV(firstName, lastName, tech) {
+        this.fullName = `${firstName} ${lastName}`;
+        this.tech = tech;
+    }
+    function CV1(firstName, tech) {
+        this.fullName = `${firstName}`;
+        this.tech = tech;
+    }
+    function CV2(lastName, tech) {
+        this.fullName = `${lastName}`;
+        this.tech = tech;
+    }
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].yearsOfExperience > 1) {
-            function CV (firstName, lastName, tech) {
-                this.fullName = `${firstName} ${lastName}`;
-                this.tech = tech;
+            if (arr[i].firstName == null) {
+                let x = new CV2(arr[i].lastName, arr[i].tech);
+                filtered.push(x);
+            } else if (arr[i].lastName == null) {
+                let x = new CV1(arr[i].firstName, arr[i].tech);
+                filtered.push(x);
+            } else if (arr[i].lastName != null && arr[i].firstName != null) {
+                let x = new CV(arr[i].firstName, arr[i].lastName, arr[i].tech);
+                filtered.push(x);
             }
-            let x = new CV(arr[i].firstName, arr[i].lastName, arr[i].tech);
-            filtered.push(x);
         }
     }
     return filtered;
@@ -126,33 +142,33 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     let result = {
-    python_devs: 0,
-    javaScript_devs: 0,
-    dotNet_devs: 0,
-    java_devs: 0,
-    totalApplicants: 0,
-    rejectedApplicants: 0,
-};
+        python_devs: 0,
+        javaScript_devs: 0,
+        dotNet_devs: 0,
+        java_devs: 0,
+        totalApplicants: 0,
+        rejectedApplicants: 0,
+    };
     for (let i = 0; i < arr.length; i++) {
-        result.totalApplicants=result.totalApplicants+1;
-        if (arr[i].yearsOfExperience > 1)  {
+        result.totalApplicants = result.totalApplicants + 1;
+        if (arr[i].yearsOfExperience > 1) {
             if (arr[i].firstName != null || arr[i].lastName != null) {
-                if (arr[i].tech==="Python") {
+                if (arr[i].tech === "Python") {
                     result.python_devs++;
-                }else if (arr[i].tech==="JS") {
+                } else if (arr[i].tech === "JS") {
                     result.javaScript_devs++;
-                } else if (arr[i].tech===".Net") {
+                } else if (arr[i].tech === ".Net") {
                     result.dotNet_devs++;
-                } else if (arr[i].tech==="Java") {
+                } else if (arr[i].tech === "Java") {
                     result.java_devs++;
                 }
-                } 
-            } else {
-                result.rejectedApplicants++;
             }
+        } else {
+            result.rejectedApplicants++;
         }
-        return result;
-    };
+    }
+    return result;
+};
 
 // -------------------------------------------------------------------------------------------------------
 
@@ -279,15 +295,13 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-    for (let i =0; i<data.grades.length; i++) {
-        let sum = 0;
-        let counter=0;
-        for (let j =0; j<data.grades[i].classes.length; j++) {
-            for (let y =0; y<=data.grades[i].classes[j].classScores.length; y++) {
-                sum+=data.grades[i].classes[j].classScores[y];
-                counter+=1;
-            }
-            data.grades[i].classes[j].avg=Math.floor(sum/counter);
+    let sum = 0;
+    for (let i = 0; i < data.grades.length; i++) {
+        let grade = data.grades[i];
+        for (let j = 0; j < grade.classes.length; j++) {
+            let classData = grade.classes[j];
+            sum = classData.classScores.reduce((a, b) => a + b, 0);
+            classData.avg = Math.floor(sum / classData.classScores.length);
         }
     }
     return data;
