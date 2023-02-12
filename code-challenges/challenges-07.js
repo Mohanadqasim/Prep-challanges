@@ -21,9 +21,9 @@
 //  2- The first letters of the firstName and lastName should be capital letter
 
 const objLat = (obj) => {
-    const firstName = obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1)
-    const lastName = obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1)
-    return `my name is ${firstName} ${lastName} I am ${obj.age} YO, and I love ${obj.hobby}`;
+    const firstName = obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1);
+    const lastName = obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1);
+    return `my name is ${firstName} ${lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`;
     // write your code here
 };
 // -------------------------------------------------------------------------------------------------------
@@ -287,7 +287,7 @@ const classesAvg = (data) => {
                 sum+=data.grades[i].classes[j].classScores[y];
                 counter+=1;
             }
-            data.grades[i].classes[j].avg=Math.round(sum/counter);
+            data.grades[i].classes[j].avg=Math.floor(sum/counter);
         }
     }
     return data;
