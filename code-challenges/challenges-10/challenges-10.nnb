@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Birthday Cake Candles](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function birthdayCakeCandles(candles) {\n    let tallest = 0;\n    let counter = 0;\n    for (let i = 0; i < candles.length; i++) {\n      if (candles[i] > tallest) {\n        tallest = candles[i];\n      }\n    }\n    for (let i = 0; i < candles.length; i++) {\n      if (candles[i] == tallest) {\n        counter += 1;\n      }\n    }\n    return counter;\n  \n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Compare The Triplets](https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function compareTriplets(a, b) {\n    let result =[0,0];\n    for (let i=0; i<a.length; i++) {\n        if (a[i]>b[i]) {\n            result[0]+=1;\n        } else if (a[i]<b[i]) {\n            result[1]+=1;\n        }\n    }\n    return result;\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Migratory Birds](https://www.hackerrank.com/challenges/migratory-birds/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function migratoryBirds(arr) {\n    const counts = {};\n    for (let i = 0; i < arr.length; i++) {\n      const birdType = arr[i];\n      if (counts[birdType] === undefined) {\n        counts[birdType] = 1;\n      } else {\n        counts[birdType] += 1;\n      }\n    }\n    let maxCount = 0;\n    let maxBirdTypes = [];\n    for (const birdType in counts) {\n      if (counts.hasOwnProperty(birdType)) {\n        const count = counts[birdType];\n        if (count > maxCount) {\n          maxCount = count;\n          maxBirdTypes = [birdType];\n        } else if (count === maxCount) {\n          maxBirdTypes.push(birdType);\n        }\n      }\n    }\n    let result=100000000000000000;\n    for (let i=0;i<maxBirdTypes.length;i++) {\n        if (maxBirdTypes[i]<result) {\n            result = maxBirdTypes[i];\n        }\n    }\n    return result;\n  };"
+            ],
+            "outputs": []
+        }
+    ]
+}
