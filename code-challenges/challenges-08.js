@@ -157,4 +157,3 @@ module.exports = {
   getInfo,
   getStudents,
 };
-
