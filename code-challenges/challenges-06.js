@@ -20,7 +20,7 @@ const findMax = (arr)=>{
         }
       }
       return max;
-    }
+}
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -56,13 +56,16 @@ const sumNums = (arr)=>{
 // Input: ['C#', 'JS', 'Ruby','Python'] 
 // Output: ['Python','Ruby','JS','C#']
 
-const reverseArray = (arr)=>{
-    let result = [];
-    for (let i = arr.length-1 ; i >= 0; i--) {
-      result.push(arr[i]);
+function reverseArray (arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return [];
     }
-    return result;
-  };
+      let result = [];
+      for (let i = arr.length-1 ; i >= 0; i--) {
+        result.push(arr[i]);
+      }
+      return result;
+    };
 // -------------------------------------------------------------------------------------------------------
 
 module.exports = {findMax , sumNums, reverseArray};
