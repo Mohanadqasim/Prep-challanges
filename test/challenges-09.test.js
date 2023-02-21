@@ -105,14 +105,14 @@ describe("Challenge09", () => {
 });
 
 describe("Challenge09", () => {
-  test.skip("Employees-Bonus", () => {
+  test("Employees-Bonus", () => {
     expect(employeesBonus(data)).toStrictEqual(res);
     expect(employeesBonus(data2)).toStrictEqual(res2);
   });
 });
 
-describe.skip("Challenge09", () => {
-  test.skip("Most-Expensive", () => {
+describe("Challenge09", () => {
+  test("Most-Expensive", () => {
     expect(
       mostExpensive(
         200,
