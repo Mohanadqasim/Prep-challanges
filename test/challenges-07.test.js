@@ -135,7 +135,7 @@ describe("Challenge07", () => {
 });
 
 describe("Challenge07", () => {
-  test.skip("CV-Formatter", () => {
+  test("CV-Formatter", () => {
     let first_Cv_Sample = [
       {
         firstName: "Jason",
@@ -240,7 +240,7 @@ describe("Challenge07", () => {
       },
     ];
     expect(cvFormatter(first_Cv_Sample)).toStrictEqual(received);
-    expect(cvFormatter(first_Cv_Sample)).toStrictEqual(received2);
+    expect(cvFormatter(second_Cv_Sample)).toStrictEqual(received2);
   });
 });
 

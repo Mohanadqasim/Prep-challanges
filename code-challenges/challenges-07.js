@@ -26,6 +26,7 @@ const objLat = (obj) => {
     return `my name is ${firstName} ${lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`;
     // write your code here
 };
+
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -88,35 +89,30 @@ const objLat = (obj) => {
 //  2- If one of the names is null don`t add it to the full name
 
 const cvFormatter = (arr) => {
-    let filtered = [];
-    function CV(firstName, lastName, tech) {
-        this.fullName = `${firstName} ${lastName}`;
-        this.tech = tech;
-    }
-    function CV1(firstName, tech) {
-        this.fullName = `${firstName}`;
-        this.tech = tech;
-    }
-    function CV2(lastName, tech) {
-        this.fullName = `${lastName}`;
-        this.tech = tech;
-    }
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].yearsOfExperience > 1) {
-            if (arr[i].firstName == null) {
-                let x = new CV2(arr[i].lastName, arr[i].tech);
-                filtered.push(x);
-            } else if (arr[i].lastName == null) {
-                let x = new CV1(arr[i].firstName, arr[i].tech);
-                filtered.push(x);
-            } else if (arr[i].lastName != null && arr[i].firstName != null) {
-                let x = new CV(arr[i].firstName, arr[i].lastName, arr[i].tech);
-                filtered.push(x);
+    let result = [];
+    let formattedCvs = arr.map((cv) => {
+        if (cv.yearsOfExperience > 1) {
+            if (!cv.firstName && cv.lastName) {
+                let fullName = `${cv.lastName}`
+                let tech = `${cv.tech}`
+                let cvObject = { fullName, tech };
+                result.push(cvObject);
+            } else if (!cv.lastName && cv.firstName) {
+                let fullName = `${cv.firstName}`
+                let tech = `${cv.tech}`
+                let cvObject = { fullName, tech };
+                result.push(cvObject);
+            } else if (cv.firstName && cv.lastName) {
+                let fullName = `${cv.firstName} ${cv.lastName}`
+                let tech = `${cv.tech}`
+                let cvObject = { fullName, tech };
+                result.push(cvObject);
             }
         }
-    }
-    return filtered;
+    })
+    return result;
 };
+
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -306,6 +302,7 @@ const classesAvg = (data) => {
     }
     return data;
 };
+
 // -------------------------------------------------------------------------------------------------------
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
