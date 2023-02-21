@@ -46,7 +46,7 @@ describe("Challenge08-03", () => {
 });
 
 describe("Challenge08-04", () => {
-  test.skip("Get-Student-Names-And-Courses", () => {
+  test("Get-Student-Names-And-Courses", () => {
     let test1 = ["Kalé", "Alisha", "Alphonso", "Briana"];
     let res1 = [
       { Student: "Kalé", course: "Python" },
