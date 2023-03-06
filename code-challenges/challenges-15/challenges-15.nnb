@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Equality In An Array](https://www.hackerrank.com/challenges/equality-in-a-array/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function equalizeArray(arr) {\n    let num = [];\n    let max=0;\n    for (let i=0; i<arr.length; i++) {\n        let count = 0;\n        for (let j=0; j<arr.length; j++) {\n            if (arr[i] === arr[j]) {\n                count++;\n            }\n            num.push(count);\n        }\n        }\n        for (let i=0; i<num.length; i++) {\n            if (num[i]>max) {\n                max=num[i]\n            }\n        }\n        return (arr.length-max);\n    }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Halloween Sale](https://www.hackerrank.com/challenges/halloween-sale/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function howManyGames(p, d, m, s) {\n    let arr = [];\n    while (s > 0 && s >= p) {\n      s = s - p;\n      arr.push(\"g\");\n      if (p >= m) {\n        p = Math.max(p - d, m);\n      }\n    }\n    return arr.length;\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Sherlock And Squares](https://www.hackerrank.com/challenges/sherlock-and-squares/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function squares(a, b) {\n    let arr = [];\n    for (let i=Math.ceil(Math.sqrt(a)); i <= Math.floor(Math.sqrt(b)); i++) {\n        if (i*i >=a && i*i<=b) {\n            arr.push('n');\n        }\n    }\n    return arr.length;\n\n}"
+            ],
+            "outputs": []
+        }
+    ]
+}
