@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Append And Delete](https://www.hackerrank.com/challenges/append-and-delete/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function appendAndDelete(s, t, k) {\n    for (var i = 0; i < s.length; i++) {\n        if (s[i] !== t[i]) break;\n    };\n    let z = (s.length + t.length) - (i * 2);\n    if (k >= s.length + t.length) return 'Yes'\n    else if (z % 2 === k % 2 && z <= k) return 'Yes';\n    else return 'No';\n};"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Encryption](https://www.hackerrank.com/challenges/encryption/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function encryption(s) {\n    const ceil = Math.ceil(Math.sqrt(s.length));\n     \n    let temp = s;\n    let array = [];\n       \n    while(temp) {\n         array = array.concat(temp.substring(0, ceil));\n         temp = temp.substring(ceil)\n    }\n \n    let result = [];\n   \n    for(let i = 0 ; i < ceil; i++) {\n         result = result.concat(\n             array.reduce((r, v) => {\n                 return r + (v[i] || \"\")\n         }, \"\")\n     )\n    };\n    return result.join(' ');\n }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [The Time In Words](https://www.hackerrank.com/challenges/the-time-in-words/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function timeInWords(h, m) {\n    let noTowords = {\n        1: \"one\",\n        2: \"two\",\n        3: \"three\",\n        4: \"four\",\n        5: \"five\",\n        6: \"six\",\n        7: \"seven\",\n        8: \"eight\",\n        9: \"nine\",\n        10: \"ten\",\n        11: \"eleven\",\n        12: \"twelve\",\n        13: \"thirteen\",\n        14: \"fourteen\",\n        15: \"fifteen\",\n        16: \"sixteen\",\n        17: \"seventeen\",\n        18: \"eighteen\",\n        19: \"nineteen\",\n        20: \"twenty\",\n        30: \"thirty\",\n        40: \"fourty\",\n        50: \"fifty\",\n        60: \"sixty\",\n    };\n\n    if (m == \"00\") {\n        return `${noTowords[h]} o' clock`;\n    }\n\n    if (m <= 30) {\n        if (m % 15 == 0) {\n            if (m == 15) return `quarter past ${noTowords[h]}`;\n            if (m == 30) return `half past ${noTowords[h]}`;\n        } else {\n            if (m == 1) {\n                return `${noTowords[m]} minute past ${noTowords[h]}`;\n            } else if (m < 20) {\n                return `${noTowords[m]} minutes past ${noTowords[h]}`;\n            } else {\n                return `${noTowords[m - (m % 10)]} ${\n                    noTowords[m % 10]\n                } minutes past ${noTowords[h]}`;\n            }\n        }\n    } else {\n        if (m % 15 == 0) {\n            if (m == 45) return `quarter to ${noTowords[(h % 12) + 1]}`;\n        } else {\n            let x = 60 - m;\n            if (x < 20) {\n                return `${noTowords[x]} minutes to ${noTowords[(h % 12) + 1]}`;\n            } else {\n                return `${noTowords[x - (x % 10)]} ${noTowords[x % 10]} minutes to ${noTowords[(h % 12) + 1]}`;\n            }\n        }\n    }\n}"
+            ],
+            "outputs": []
+        }
+    ]
+}
